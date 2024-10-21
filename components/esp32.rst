@@ -12,6 +12,7 @@ This component contains platform-specific options for the ESP32 platform.
     # Example configuration entry
     esp32:
       board: esp32dev
+      board: esp32dev
 
 Configuration variables:
 ------------------------
@@ -31,6 +32,8 @@ Configuration variables:
   a board that's unknown to ESPHome is used, this option is mandatory.
 - **framework** (*Optional*): Options for the underlying framework used by ESPHome. See :ref:`esp32-arduino_framework`
   and :ref:`esp32-espidf_framework`.
+- **framework** (*Optional*): Options for the underlying framework used by ESPHome. See :ref:`esp32-arduino_framework`
+  and :ref:`esp32-espidf_framework`.
 
 .. _esp32-arduino_framework:
 
@@ -44,10 +47,12 @@ This is the default framework for ESP32 chips at the moment.
     # Example configuration entry
     esp32:
       board: ...
+      board: ...
       framework:
         type: arduino
 
 Configuration variables:
+************************
 ************************
 
 - **version** (*Optional*, string): The base framework version number to use, from
@@ -64,6 +69,7 @@ Configuration variables:
 - **platform_version** (*Optional*, string): The version of the
   `platformio/espressif32 <https://github.com/platformio/platform-espressif32/releases/>`__ package to use.
 - **advanced** (*Optional*, mapping): See :ref:`esp32-advanced_configuration` below.
+- **advanced** (*Optional*, mapping): See :ref:`esp32-advanced_configuration` below.
 
 .. _esp32-espidf_framework:
 
@@ -78,10 +84,12 @@ ESP32S3, ESP32C3 and single-core ESP32 chips.
     # Example configuration entry
     esp32:
       board: ...
+      board: ...
       framework:
         type: esp-idf
 
 Configuration variables:
+************************
 ************************
 
 - **version** (*Optional*, string): The base framework version number to use, from
@@ -106,6 +114,12 @@ Configuration variables:
 
 Advanced Configuration
 ----------------------
+- **advanced** (*Optional*, mapping): See :ref:`esp32-advanced_configuration` below.
+
+.. _esp32-advanced_configuration:
+
+Advanced Configuration
+----------------------
 
 - **ignore_efuse_custom_mac** (*Optional*, boolean): Can be set to ``true`` for devices on which the burned-in custom
   MAC address is not valid.
@@ -121,7 +135,7 @@ worry about pin alias names or numbering...yay!
 
 Some notes about the pins on the original ESP32:
 
-- ``GPIO0`` is used to determine the boot mode on startup; note that **ESP32 variants use different pins to determine
+- ``GPIO0`` is used to determine the boot mode on startup; note that **ESP32 variants use differnt pins to determine
   the boot mode.** Bootstrapping pin(s) should **not** be pulled LOW on startup to avoid booting into flash mode when
   it's not desired. You can, however, still use the strapping pins as output pins.
 - ``GPIO34`` to ``GPIO39``: These pins **cannot** be used as outputs (yes, even though GPIO stands for "general purpose
